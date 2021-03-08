@@ -1,6 +1,6 @@
 const api = {
-    key: "f56dca24ce05c3835045624436d6a8e8",
-    base: "https://api.openweathermap.org/data/2.5"
+    key: "a012917c99ef51c392b259e302401f8c",
+    base: "https://api.openweathermap.org/data/2.5/"
 }
 
 const searchbox = document.querySelector('.search-box');
@@ -8,14 +8,12 @@ searchbox.addEventListener('keypress', setQuery);
 
 function setQuery(evt) {
     if (evt.keyCode == 13) {
-//        getResults(searchbox.value);
-        console.log(searchbox.value);
-        searchbox.value = '';
+        getResults(searchbox.value);
     }
 }
 
 function getResults (query) {
-    fetch(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}`)
+    fetch(`${api.base}weather?q=${query}&units=metric&appid=${api.key}`)
     .then(weather => {
         return weather.json();
     }).then(displayResults);
@@ -23,4 +21,6 @@ function getResults (query) {
 
 function displayResults (weather) {
     console.log(weather);
+    const city = document.querySelector('.location .city');
+    city.innerText = `${weather.name}, ${weather.sys.country}`;
 }

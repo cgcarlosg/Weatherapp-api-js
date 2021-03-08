@@ -15,7 +15,7 @@
   \**********************/
 /***/ (() => {
 
-eval("const api = {\r\n    key: \"f56dca24ce05c3835045624436d6a8e8\",\r\n    base: \"https://api.openweathermap.org/data/2.5\"\r\n}\r\n\r\nconst searchbox = document.querySelector('.search-box');\r\nsearchbox.addEventListener('keypress', setQuery);\r\n\r\nfunction setQuery(evt) {\r\n    if (evt.keyCode == 13) {\r\n//        getResults(searchbox.value);\r\n        console.log(searchbox.value);\r\n        searchbox.value = '';\r\n    }\r\n}\r\n\r\nfunction getResults (query) {\r\n    fetch(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}`)\r\n    .then(weather => {\r\n        return weather.json();\r\n    }).then(displayResults);\r\n}\r\n\r\nfunction displayResults (weather) {\r\n    console.log(weather);\r\n}\n\n//# sourceURL=webpack://webpack-demo/./src/index.js?");
+eval("const api = {\r\n    key: \"a012917c99ef51c392b259e302401f8c\",\r\n    base: \"https://api.openweathermap.org/data/2.5/\"\r\n}\r\n\r\nconst searchbox = document.querySelector('.search-box');\r\nsearchbox.addEventListener('keypress', setQuery);\r\n\r\nfunction setQuery(evt) {\r\n    if (evt.keyCode == 13) {\r\n        getResults(searchbox.value);\r\n    }\r\n}\r\n\r\nfunction getResults (query) {\r\n    fetch(`${api.base}weather?q=${query}&units=metric&appid=${api.key}`)\r\n    .then(weather => {\r\n        return weather.json();\r\n    }).then(displayResults);\r\n}\r\n\r\nfunction displayResults (weather) {\r\n    console.log(weather);\r\n    const city = document.querySelector('.location .city');\r\n    city.innerText = `${weather.name}, ${weather.sys.country}`;\r\n}\n\n//# sourceURL=webpack://webpack-demo/./src/index.js?");
 
 /***/ })
 
