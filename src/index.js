@@ -23,4 +23,20 @@ function displayResults (weather) {
     console.log(weather);
     const city = document.querySelector('.location .city');
     city.innerText = `${weather.name}, ${weather.sys.country}`;
+
+    const now = new Date ();
+    const date = document.querySelector('.location .date');
+    date.innerText = dateBuilder(now);
+}
+
+function dateBuilder (d) {
+    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    const days = ["Sun", "Mon", "Tues", "Wed", "thurs", "Fri", "Sat"];
+
+    const day = days[d.getDay()];
+    const date = d.getDate();
+    const month = months[d.getMonth()];
+    const year = d.getFullYear();
+
+    return `${day} ${date} ${month} ${year}`
 }
