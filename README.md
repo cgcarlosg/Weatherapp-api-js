@@ -2,18 +2,16 @@
 Weather app in JavaScript is a practice project, which includes managing the dynamically DOM manipulation and asynchronous access to public API using async await methods and promises. I used Javascript, HTML5, CSS3, and Open Weather API to implement it.</p>
 
 ## App Screenshot
-![screenshot](./screenshot.png)
+![screenshot](screenshot.png)
 
 ## Live Link Demo
 
-[Live Link Demo](https://marcelomaidden.github.io/weather-app/)
+[Live Link Demo](https:"#")
 
 ## Built With
 
 - HTML5
 - CSS3
-- Bootstrap
-- Giphy API
 - Open Weather API
 - JavaScript
 
@@ -33,7 +31,7 @@ To get a local copy up and running follow these simple example steps.
 - Open Terminal
 - Change directory to folder to download repository
 - Use `cd <file-path>`
-- Run `git clone https://github.com/marcelomaidden/weather-app`
+- Run `git clone https://github.com/cgcarlosg/Weatherapp-api-js`
 
 
 
@@ -44,7 +42,6 @@ To make any change,
 ## Usage
   - Add a .env file on the root folder of your project with all your API keys as the example below
   - API_KEY="'your open weather key'"
-  - GIPHY_KEY="'your giphy key'"
   - run npm run build on your terminal to rebuild your public keys
   - Change directory to dist folder
   - Open index.html on your preferred browser
@@ -53,9 +50,9 @@ To make any change,
 
 👤  **Marcelo Fernandes**
 
-- GitHub: [@marcelomaidden](https://github.com/marcelomaidden)
-- Twitter: [@marcelomaidden](https://twitter.com/marcelomaidden)
-- LinkedIn: [Marcelo Fernandes](https://linkedin.com/in/marcelofernandesdearaujo) 
+- GitHub: [@cgcarlosg](https://github.com/cgcarlosg)
+- Twitter: [@cgcarlosg1](https://twitter.com/cgcarlosg1)
+- LinkedIn: [carlos albenio gutierrez](https://linkedin.com/in/carlosalbeniogutierrez) 
 ## 🤝 Contributing
 
 Contributions, issues and feature requests are welcome! Start by:
