@@ -42,7 +42,6 @@ To make any change,
 ## Usage
   - Add a .env file on the root folder of your project with all your API keys as the example below
   - API_KEY="'your open weather key'"
-  - GIPHY_KEY="'your giphy key'"
   - run npm run build on your terminal to rebuild your public keys
   - Change directory to dist folder
   - Open index.html on your preferred browser
