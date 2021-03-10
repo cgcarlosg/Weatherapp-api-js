@@ -51,11 +51,12 @@ To make any change,
 
 ## Author
 
-👤  **Marcelo Fernandes**
+👤  **Carlos Gutierrez**
 
-- GitHub: [@marcelomaidden](https://github.com/marcelomaidden)
-- Twitter: [@marcelomaidden](https://twitter.com/marcelomaidden)
-- LinkedIn: [Marcelo Fernandes](https://linkedin.com/in/marcelofernandesdearaujo) 
+- GitHub: [@cgcarlosg](https://github.com/cgcarlosg)
+- Twitter: [@cgcarlosg1](https://twitter.com/cgcarlosg1)
+- LinkedIn: [carlos albenio gutierrez](https://linkedin.com/in/carlosalbeniogutierrez)
+
 ## 🤝 Contributing
 
 Contributions, issues and feature requests are welcome! Start by:
@@ -75,9 +76,7 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-- Bulma
 - W3Schools
-- Font Awesome
 - Javascript
 
 ## 📝 License
