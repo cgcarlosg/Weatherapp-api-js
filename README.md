@@ -34,7 +34,6 @@ To get a local copy up and running follow these simple example steps.
 - Run `git clone https://github.com/cgcarlosg/Weatherapp-api-js`
 
 
-
 To make any change,
 
 - Open related file by using text editor.
