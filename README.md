@@ -6,7 +6,7 @@ Weather app in JavaScript is a practice project, which includes managing the dyn
 
 ## Live Link Demo
 
-[Live Link Demo](https://rawcdn.githack.com/cgcarlosg/87ba427e629df1ebd130dfcc0af714962d9fa351/dist/index.html)
+[Live Link Demo](https://rawcdn.githack.com/cgcarlosg/Weatherapp-api-js/1e26b3405af4296edc57da7191293f0541455781/dist/index.html)
 
 ## Built With
 
