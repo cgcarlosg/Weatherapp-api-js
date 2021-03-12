@@ -28,10 +28,15 @@ unitToggle.addEventListener('click', () => {
   metricRadio.checked = metricUnits
   imperialRadio.checked = !metricUnits
   updateUnits()
-
 })
 
+metricRadio.addEventListener('change', () => {
+  updateUnits()
+})
 
+imperialRadio.addEventListener('change', () => {
+  updateUnits()
+})
 
 const searchbox = document.querySelector('.search-box');
 
