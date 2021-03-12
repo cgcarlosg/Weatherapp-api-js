@@ -1,3 +1,18 @@
+const unitToggle = document.querySelector('[data-unit-toggle]')
+const metricRadio = document.getElementById('cel')
+const imperialRadio = document.getElementById('fah')
+
+const isMetric = () => {
+	return metricRadio.checked
+}
+
+unitToggle.addEventListener('click', () => {
+  let metricUnits = !isMetric()
+  metricRadio.checked = metricUnits
+  imperialRadio.checked = !metricUnits
+})
+
+
 const api = {
   key: 'a012917c99ef51c392b259e302401f8c',
   base: 'https://api.openweathermap.org/data/2.5/',
@@ -5,7 +20,7 @@ const api = {
 
 const searchbox = document.querySelector('.search-box');
 
-function dateBuilder(d) {
+const dateBuilder = (d) => {
   const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
   const days = ['Sun', 'Mon', 'Tues', 'Wed', 'thurs', 'Fri', 'Sat'];
 
@@ -17,7 +32,7 @@ function dateBuilder(d) {
   return `${day} ${date} ${month} ${year}`;
 }
 
-function displayResults(weather) {
+const displayResults = (weather) => {
   const city = document.querySelector('.location .city');
   city.innerText = `${weather.name}, ${weather.sys.country}`;
 
@@ -35,12 +50,12 @@ function displayResults(weather) {
   hilow.innerText = `${Math.round(weather.main.temp_min)}°C / ${Math.round(weather.main.temp_max)}°C`;
 }
 
-function getResults(query) {
+const getResults = (query) => {
   fetch(`${api.base}weather?q=${query}&units=metric&appid=${api.key}`)
     .then(weather => weather.json()).then(displayResults);
 }
 
-function setQuery(evt) {
+const setQuery = (evt) => {
   if (evt.keyCode === 13) {
     getResults(searchbox.value);
   }

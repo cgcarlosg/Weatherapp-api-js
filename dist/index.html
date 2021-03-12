@@ -10,6 +10,15 @@
  <div class="app-wrap">
    <header>
      <input type="text" autocomplete="off" class="search-box" placeholder="Search for a city...">
+      <div class="unit">
+        <label for="cel">°C</label>
+        <input type="radio" id="cel" name="unit" checked>
+        <button class="unit__toggle" data-unit-toggle></button>
+        <label for="fah">°F</label>
+        <input type="radio" id="fah" name="unit">
+      </div> 
+    </div> 
+
    </header>
    <main>
      <section class="location">
@@ -21,6 +30,8 @@
        <div class="weather">Sunny</div>
        <div class="hi-low">13°C / 16°C</div>
      </div>
+ 
+
    </main>
  </div>
     <script src="bundle.js"></script>
