@@ -1,22 +1,37 @@
+const api = {
+  key: 'a012917c99ef51c392b259e302401f8c',
+  base: 'https://api.openweathermap.org/data/2.5/',
+};
+
+function updateUnits() {
+
+}
+
+function isMetric() {
+	return metricRadio.checked
+}
+
+function updateUnits() {
+	const tempUnits = document.querySelectorAll('[data-temp-unit]')
+
+	tempUnits.forEach(unit => {
+		unit.innerText = isMetric() ? 'C' : 'F'
+	})
+}
+
 const unitToggle = document.querySelector('[data-unit-toggle]')
 const metricRadio = document.getElementById('cel')
 const imperialRadio = document.getElementById('fah')
-
-const isMetric = () => {
-	return metricRadio.checked
-}
 
 unitToggle.addEventListener('click', () => {
   let metricUnits = !isMetric()
   metricRadio.checked = metricUnits
   imperialRadio.checked = !metricUnits
+  updateUnits()
+
 })
 
 
-const api = {
-  key: 'a012917c99ef51c392b259e302401f8c',
-  base: 'https://api.openweathermap.org/data/2.5/',
-};
 
 const searchbox = document.querySelector('.search-box');
 
@@ -61,4 +76,4 @@ const setQuery = (evt) => {
   }
 }
 
-searchbox.addEventListener('keypress', setQuery);
+searchbox.addEventListener('keypress', setQuery)
