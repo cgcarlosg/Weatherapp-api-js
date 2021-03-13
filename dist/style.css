@@ -74,6 +74,12 @@ main {
   font-weight: 500;
 }
 
+.wraping {
+  display: flex;
+  width: 300px;
+  justify-content: center;
+}
+
 .current .weather {
   color: black;
   font-size: 32px;

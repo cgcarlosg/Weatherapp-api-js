@@ -3,10 +3,6 @@ const api = {
   base: 'https://api.openweathermap.org/data/2.5/',
 };
 
-function updateUnits() {
-
-}
-
 function isMetric() {
 	return metricRadio.checked
 }
@@ -15,7 +11,7 @@ function updateUnits() {
 	const tempUnits = document.querySelectorAll('[data-temp-unit]')
 
 	tempUnits.forEach(unit => {
-		unit.innerText = isMetric() ? 'C' : 'F'
+		unit.innerText = isMetric() ? '°C' : '°F'
 	})
 }
 
@@ -28,13 +24,17 @@ unitToggle.addEventListener('click', () => {
   metricRadio.checked = metricUnits
   imperialRadio.checked = !metricUnits
   updateUnits()
+  displayResults
+
 })
 
 metricRadio.addEventListener('change', () => {
+  displayResults
   updateUnits()
 })
 
 imperialRadio.addEventListener('change', () => {
+  displayResults
   updateUnits()
 })
 
@@ -53,6 +53,7 @@ const dateBuilder = (d) => {
 }
 
 const displayResults = (weather) => {
+
   const city = document.querySelector('.location .city');
   city.innerText = `${weather.name}, ${weather.sys.country}`;
 
@@ -61,13 +62,15 @@ const displayResults = (weather) => {
   date.innerText = dateBuilder(now);
 
   const temp = document.querySelector('.current .temp');
-  temp.innerHTML = `${Math.round(weather.main.temp)}<span>°C</span>`;
+  temp.innerHTML = isMetric() ? `${Math.round(weather.main.temp)}` : `${Math.round(weather.main.temp)-32}`;
 
   const weatherEl = document.querySelector('.current .weather');
   weatherEl.innerText = weather.weather[0].main;
 
   const hilow = document.querySelector('.hi-low');
-  hilow.innerText = `${Math.round(weather.main.temp_min)}°C / ${Math.round(weather.main.temp_max)}°C`;
+  hilow.innerText = `${Math.round(weather.main.temp_min)} / ${Math.round(weather.main.temp_max)}`;
+
+  updateUnits()
 }
 
 const getResults = (query) => {
