@@ -3,23 +3,20 @@ const api = {
   base: 'https://api.openweathermap.org/data/2.5/',
 };
 
-const isMetric = () => {
-	return metricRadio.checked
-}
+const unitToggle = document.querySelector('[data-unit-toggle]');
+const metricRadio = document.getElementById('cel');
+const imperialRadio = document.getElementById('fah');
+const searchbox = document.querySelector('.search-box');
+
+const isMetric = () => metricRadio.checked;
 
 const updateUnits = () => {
-	const tempUnits = document.querySelectorAll('[data-temp-unit]')
+  const tempUnits = document.querySelectorAll('[data-temp-unit]');
 
-	tempUnits.forEach(unit => {
-		unit.innerText = isMetric() ? '°C' : '°F'
-	})
-}
-
-const unitToggle = document.querySelector('[data-unit-toggle]')
-const metricRadio = document.getElementById('cel')
-const imperialRadio = document.getElementById('fah')
-
-const searchbox = document.querySelector('.search-box');
+  tempUnits.forEach(unit => {
+    unit.innerText = isMetric() ? '°C' : '°F';
+  });
+};
 
 const dateBuilder = (d) => {
   const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -31,30 +28,11 @@ const dateBuilder = (d) => {
   const year = d.getFullYear();
 
   return `${day} ${date} ${month} ${year}`;
-}
+};
 
-async function getResults(query) {
-try {
-const response = await fetch(`${api.base}weather?q=${query}&units=metric&appid=${api.key}`,
-{ mode: 'cors' });
-const weather = await response.json();
-displayWeather(weather);
-} catch (err) {
-    alert(err);
-}
-}
-
-const setQuery = (evt) => {
-  if (evt.keyCode === 13) {
-    getResults(searchbox.value);
-  }
-}
-
-searchbox.addEventListener('keypress', setQuery)
-
+searchbox.addEventListener('keypress', setQuery);
 
 const displayWeather = (weather) => {
-
   const city = document.querySelector('.location .city');
   city.innerText = `${weather.name}, ${weather.sys.country}`;
 
@@ -72,15 +50,31 @@ const displayWeather = (weather) => {
   hilow.innerText = `${Math.round(weather.main.temp_min)} / ${Math.round(weather.main.temp_max)}`;
 
   unitToggle.addEventListener('click', () => {
-    const degrees = isMetric() ? ((weather.main.temp-32)*5/9) : weather.main.temp;
-    const degreesMin = isMetric() ? ((weather.main.temp_min-32)*5/9) : weather.main.temp_min;
-    const degreesMax = isMetric() ? ((weather.main.temp_max-32)*5/9) : weather.main.temp_max;
-    hilow.innerText = `${Math.round(degreesMin)} / ${Math.round(degreesMax)}`;
-    let metricUnits = !isMetric()
-    metricRadio.checked = metricUnits
-    imperialRadio.checked = !metricUnits
+    const degrees = isMetric() ? ((weather.main.temp - 32) * (5 / 9)) : weather.main.temp;
+    const degreMin = isMetric() ? ((weather.main.temp_min - 32) * (5 / 9)) : weather.main.temp_min;
+    const degreMax = isMetric() ? ((weather.main.temp_max - 32) * (5 / 9)) : weather.main.temp_max;
+    hilow.innerText = `${Math.round(degreMin)} / ${Math.round(degreMax)}`;
+    const metricUnits = !isMetric();
+    metricRadio.checked = metricUnits;
+    imperialRadio.checked = !metricUnits;
     temp.innerHTML = `${Math.round(degrees)}`;
-    updateUnits()
-  })
-  updateUnits()
+    updateUnits();
+  });
+  updateUnits();
+};
+async function getResults(query) {
+  try {
+    const response = await fetch(`${api.base}weather?q=${query}&units=metric&appid=${api.key}`,
+      { mode: 'cors' });
+    const weather = await response.json();
+    displayWeather(weather);
+  } catch (err) {
+    alert(err);
+  }
 }
+// eslint-disable-next-line no-use-before-define
+const setQuery = (evt) => {
+  if (evt.keyCode === 13) {
+    getResults(searchbox.value);
+  }
+};
