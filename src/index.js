@@ -30,6 +30,12 @@ const dateBuilder = (d) => {
   return `${day} ${date} ${month} ${year}`;
 };
 
+const setQuery = (evt) => {
+  if (evt.keyCode === 13) {
+    getResults(searchbox.value); // eslint-disable-line no-use-before-define
+  }
+};
+
 searchbox.addEventListener('keypress', setQuery);
 
 const displayWeather = (weather) => {
@@ -62,6 +68,7 @@ const displayWeather = (weather) => {
   });
   updateUnits();
 };
+
 async function getResults(query) {
   try {
     const response = await fetch(`${api.base}weather?q=${query}&units=metric&appid=${api.key}`,
@@ -69,12 +76,6 @@ async function getResults(query) {
     const weather = await response.json();
     displayWeather(weather);
   } catch (err) {
-    alert(err);
+    alert(err); // eslint-disable-line no-alert
   }
 }
-// eslint-disable-next-line no-use-before-define
-const setQuery = (evt) => {
-  if (evt.keyCode === 13) {
-    getResults(searchbox.value);
-  }
-};
