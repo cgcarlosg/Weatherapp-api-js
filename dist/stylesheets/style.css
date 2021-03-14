@@ -10,7 +10,7 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background-image: url('/src/icon.png');
+  background-image: url('icon.png');
   background-size: cover;
   background-position: top center;
 }
