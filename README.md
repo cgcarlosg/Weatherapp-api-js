@@ -2,7 +2,7 @@
 Weather app in JavaScript is a practice project, which includes managing the dynamically DOM manipulation and asynchronous access to public API using async await methods and promises. I used Javascript, HTML5, CSS3, and Open Weather API to implement it.</p>
 
 ## App Screenshot
-![screenshot](https://github.com/cgcarlosg/Weatherapp-api-js/blob/feature/dist/screenshot.png)
+![screenshot](https://github.com/cgcarlosg/Weatherapp-api-js/blob/feature/dist/stylesheets/screenshot.png)
 
 ## Live Link Demo
 
