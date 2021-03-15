@@ -69,7 +69,7 @@ const displayWeather = (weather) => {
   updateUnits();
 };
 
-async getResults = (query) => {
+const getResults = async (query) => {
   try {
     const response = await fetch(`${api.base}weather?q=${query}&units=metric&appid=${api.key}`,
       { mode: 'cors' });
@@ -78,4 +78,4 @@ async getResults = (query) => {
   } catch (err) {
     alert(err); // eslint-disable-line no-alert
   }
-}
+};
